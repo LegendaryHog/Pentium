@@ -1,0 +1,13 @@
+push 10
+push 20
+
+pop [20]
+pop [25]
+
+push [20]
+push [25]
+
+out
+out
+
+hlt

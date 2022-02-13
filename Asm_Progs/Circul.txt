@@ -1,0 +1,151 @@
+call set_window:
+
+call input:
+
+call make_const:
+
+call draw_circul:
+
+pic
+
+HLT
+
+print_1:
+    push 1
+    out
+ret
+
+input:
+    in
+    pop rcx
+ret 
+
+make_const:
+    push 0.45
+    pop rdx
+ret
+
+set_window:
+    push 128
+    push 64
+    set
+ret
+
+draw_circul:
+
+    push rcx
+    push -1
+    mul
+    pop rax
+
+    while_x<=R+x0:
+
+        push rax
+        push rax
+        mul
+
+        push rcx
+        push rcx
+        mul
+
+        sub
+
+        sqrt
+
+        push rdx
+        mul
+
+        pop rbx
+
+        push rax + 64
+        push rbx + 32
+        DRAW
+
+        push rax + 64
+        push rbx + 33
+        DRAW
+
+        push rax + 64
+        push rbx - 32
+        push -1
+        mul
+        DRAW
+
+        push rax + 64
+        push rbx - 33
+        push -1
+        mul
+        DRAW
+
+        push rax + 1
+        pop rax
+
+        push rcx
+        push rax
+
+        JBE while_x<=R+x0:
+
+    push rcx
+    push rdx
+    mul
+    push -1
+    mul
+
+    pop rbx
+
+    while_y<=R+y0:
+        push rbx
+        push rbx
+        mul
+
+        push rcx
+        push rdx
+        mul
+        push rcx
+        push rdx
+        mul
+        mul
+
+        sub
+
+        sqrt
+
+        push rdx
+
+        div
+
+        pop rax
+
+        push rax + 64
+        push rbx + 32
+        DRAW
+
+        push rax + 65
+        push rbx + 32
+        DRAW
+
+        push rax - 64
+        push -1
+        mul
+        push rbx + 32
+        DRAW
+
+        push rax - 65
+        push -1
+        mul
+        push rbx + 32
+        DRAW
+
+        push rbx + 1
+        pop rbx
+
+        push rcx
+        push rdx
+        mul
+        push rbx
+
+        JBE while_y<=R+y0:
+ret 
+
+
+
