@@ -15,21 +15,21 @@ recomp_pic:
 	$(CC) Pic/Pic.c Pic/main.c $(CFLAGS) -o Pic/pict.out
 
 run_quad:
-	Assembler/./asm.out Assembler/Quad.txt Assembler/Quad.bin
-	Processor/./proc.out Assembler/Quad.bin
+	Assembler/./asm.out Asm_progs/Quad.txt Asm_progs/Quad.bin
+	Processor/./proc.out Asm_progs/Quad.bin
 
 run_pic:
-	Pic/./pict.out Pic/Pic.txt Assembler/picasm.txt
-	Assembler/./asm.out Assembler/picasm.txt Assembler/pic.bin
-	Processor/./proc.out Assembler/pic.bin
+	Pic/./pict.out Pic/Pic.txt Asm_progs/picasm.txt
+	Assembler/./asm.out Asm_progs/picasm.txt Asm_progs/pic.bin
+	Processor/./proc.out Asm_progs/pic.bin
 
 run_circul:
-	Assembler/./asm.out Assembler/Circul.txt Assembler/circ.bin
-	Processor/./proc.out Assembler/circ.bin
+	Assembler/./asm.out Asm_progs/Circul.txt Asm_progs/circ.bin
+	Processor/./proc.out Asm_progs/circ.bin
 
 run_cmdfile:
-	Assembler/./asm.out Assembler/cmdfile.txt Assembler/machinecode.bin
-	Processor/./proc.out Assembler/machinecode.bin
+	Assembler/./asm.out Asm_progs/cmdfile.txt Asm_progs/machinecode.bin
+	Processor/./proc.out Asm_progs/machinecode.bin
 
 clean:
 	rm -rf *.txt
