@@ -1,0 +1,248 @@
+CALL input:
+CALL new_coef:
+CALL solve:
+CALL output:
+HLT
+
+input:
+    IN
+    IN
+    IN
+
+    POP rcx
+    POP rbx
+    POP rax
+RET
+
+new_coef:
+    PUSH rbx
+    FABS
+    PUSH rcx
+    FABS
+    JAE rbx>=rcx:
+        PUSH rcx
+        FABS
+        PUSH rax
+        FABS
+        JAE rax>=rcx:
+            PUSH rcx
+            POP rdx
+            CALL div_all:
+            RET
+        rax>=rcx:
+            PUSH rax
+            POP rdx
+            CALL div_all:
+            RET
+    rbx>=rcx:
+        PUSH rbx
+        FABS
+        PUSH rax
+        FABS
+        JAE rax>=rbx: 
+            PUSH rbx
+            POP rdx
+            CALL div_all:
+            RET
+        rax>=rbx:
+            PUSH rax
+            POP rdx
+            CALL div_all:
+            RET
+
+div_all:
+    PUSH 1
+    PUSH rdx
+    DIV
+
+    ISFIN
+    PUSH 0
+
+    JE null_max:
+        PUSH rax
+        PUSH rdx
+        DIV
+        POP rax
+
+        PUSH rbx
+        PUSH rdx
+        DIV
+        POP rbx
+
+        PUSH rcx
+        PUSH rdx
+        DIV
+        POP rcx
+
+        RET
+    null_max:
+        PUSH 0
+        PUSH 0
+        PUSH 0
+        POP rax
+        POP rbx
+        POP rcx
+
+        RET
+        
+
+
+
+
+solve:
+    PUSH rax
+    PUSH 0
+    JNE no_null_a:
+        PUSH rbx
+        PUSH 0
+        JNE no_null_b:
+            PUSH rcx
+            PUSH 0
+            JNE no_null_c:
+                PUSH 88
+                pop rdx
+                RET
+            no_null_c:
+                PUSH 0
+                pop rdx
+                RET
+        no_null_b:
+            PUSH rcx
+            PUSH rbx
+            DIV
+            PUSH -1
+            MUL
+            pop rax
+            PUSH 1
+            pop rdx
+            RET
+    no_null_a:
+        CALL discrim:
+        PUSH rdx
+        PUSH -1
+        JNE D>=0:
+            PUSH 0
+            pop rdx
+            RET
+        D>=0:
+            PUSH rdx
+            PUSH 0
+            JNE D!=0:
+                PUSH rbx
+                PUSH rax
+                DIV
+                PUSH -2
+                DIV
+                pop rax
+                PUSH 1
+                pop rdx
+                RET
+            D!=0:
+                PUSH rbx
+                PUSH -1
+                MUL
+                PUSH rdx
+                ADD
+                PUSH 2
+                DIV
+                PUSH rax
+                DIV
+
+                PUSH rbx
+                PUSH -1
+                MUL
+                PUSH rdx
+                PUSH -1
+                MUL
+                ADD
+                PUSH 2
+                DIV
+                PUSH rax
+                DIV
+
+                pop rbx
+                pop rax
+
+                PUSH 2
+                pop rdx
+
+
+                RET
+
+
+output:
+    PUSH rdx
+    PUSH 0
+    JE no_roots:
+        PUSH rdx
+        PUSH 1
+        JE one_root:
+            PUSH rdx
+            PUSH 2
+            JE two_roots:
+                PUSH rdx
+                OUT
+                RET
+            two_roots:
+                push rax
+                push rbx
+                PUSH rdx
+                OUT
+                OUT
+                OUT
+                RET
+        one_root:
+            push rax
+            PUSH rdx
+            OUT
+            OUT
+            RET
+    no_roots:
+        PUSH rdx
+        OUT
+        RET     
+
+discrim:
+    PUSH rbx
+    PUSH rbx
+    MUL
+    PUSH rax
+    PUSH rcx
+    MUL
+    PUSH -4
+    MUL
+    ADD
+    POP rdx
+    PUSH rdx
+    PUSH 0
+    JA less_null_d:
+        PUSH rdx
+        SQRT
+        POP rdx
+        RET
+    less_null_d:
+        PUSH -1
+        POP rdx
+        RET
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
