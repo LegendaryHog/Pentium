@@ -35,6 +35,10 @@ run_heart:
 	Assembler/./asm.out Asm_Progs/heart.txt Asm_Progs/heart.bin
 	Processor/./proc.out Asm_Progs/heart.bin
 
+run_RT_Erbe:
+	Assembler/./asm.out Asm_Progs/RT_Erbe.txt Asm_Progs/RT_Erbe.bin
+	Processor/./proc.out Asm_Progs/RT_Erbe.bin
+
 clean:
 	rm -rf *.txt
 	
