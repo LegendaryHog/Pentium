@@ -15,25 +15,25 @@ recomp_pic:
 	$(CC) Pic/Pic.c Pic/main.c $(CFLAGS) -o Pic/pict.out
 
 run_quad:
-	Assembler/./asm.out Asm_progs/Quad.txt Asm_progs/Quad.bin
-	Processor/./proc.out Asm_progs/Quad.bin
+	Assembler/./asm.out Asm_Progs/Quad.txt Asm_Progs/Quad.bin
+	Processor/./proc.out Asm_Progs/Quad.bin
 
 run_pic:
-	Pic/./pict.out Pic/Pic.txt Asm_progs/picasm.txt
-	Assembler/./asm.out Asm_progs/picasm.txt Asm_progs/pic.bin
-	Processor/./proc.out Asm_progs/pic.bin
+	Pic/./pict.out Pic/Pic.txt Asm_Progs/picasm.txt
+	Assembler/./asm.out Asm_Progs/picasm.txt Asm_Progs/pic.bin
+	Processor/./proc.out Asm_Progs/pic.bin
 
 run_circul:
-	Assembler/./asm.out Asm_progs/Circul.txt Asm_progs/circ.bin
-	Processor/./proc.out Asm_progs/circ.bin
+	Assembler/./asm.out Asm_Progs/Circul.txt Asm_Progs/circ.bin
+	Processor/./proc.out Asm_Progs/circ.bin
 
 run_cmdfile:
-	Assembler/./asm.out Asm_progs/cmdfile.txt Asm_progs/machinecode.bin
-	Processor/./proc.out Asm_progs/machinecode.bin
+	Assembler/./asm.out Asm_Progs/cmdfile.txt Asm_Progs/machinecode.bin
+	Processor/./proc.out Asm_Progs/machinecode.bin
 
 run_heart:
-	Assembler/./asm.out Asm_progs/heart.txt Asm_progs/heart.bin
-	Processor/./proc.out Asm_progs/heart.bin
+	Assembler/./asm.out Asm_Progs/heart.txt Asm_Progs/heart.bin
+	Processor/./proc.out Asm_Progs/heart.bin
 
 clean:
 	rm -rf *.txt
