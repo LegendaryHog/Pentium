@@ -38,6 +38,7 @@ DEF_CMD(PUSH, 1, 1,
             ip += local_ip;
         }
     })
+    
 
 DEF_CMD(POP,  2, 1,
     {
