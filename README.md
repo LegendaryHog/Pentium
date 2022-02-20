@@ -1,5 +1,5 @@
 # Pentium
-[Click on this link] (#1.-Asm_Progs)
+[Click on this link](#1.-Asm_Progs)
 **1. Asm_Progs**
 
 **2. Assembler**
