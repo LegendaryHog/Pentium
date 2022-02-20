@@ -386,11 +386,11 @@ of arguments for command string.
     ```
     ./<outfilename> <asmcodefile> <machinecodefile>
     ```
-    outfilename - extension *.out
+    outfilename - extension is *.out
 
-    asmcodefile - extension *.txt
+    asmcodefile - extension is *.txt
 
-    machinecodefile - extension *.bin
+    machinecodefile - extension is *.bin
 
 - Processor
 
@@ -410,9 +410,9 @@ of arguments for command string.
     ```
     ./<outfilename> <machinecodefile>
     ```
-    outfilename - extension *.out
+    outfilename - extension is *.out
 
-    machinecodefile - extension *.bin, must be result of runing of Assembler
+    machinecodefile - extension is *.bin, must be result of runing of Assembler
 
 - Pic
 
@@ -435,9 +435,9 @@ of arguments for command string.
     ```
     outfilename - extension is *.out
 
-    picfile - extension if *.txt, file with picture for scan, for more info read docementatin of "Pic"
+    picfile - extension is *.txt, file with picture for scan, for more info read docementatin of "Pic"
 
-    picasmfile - extension *.txt, file with generated asm code, for more info read documentation of "Pic"
+    picasmfile - extension  is *.txt, file with generated asm code, for more info read documentation of "Pic"
 
 
 
