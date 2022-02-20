@@ -97,29 +97,29 @@ DEF_CMD(name, num, args_num, code)
 - num  - number of command in enum
 - args_num - sun of arguments
 - code - code to case in switch in "Processor/Processor.c" in function Pentium ()
-### Description of commands.
+;;; Description of commands.
 1. PUSH
 
 5 - is example of const
 
 rax - is example of register
 ```asm
-push 5      #put 5 in stack
+push 5      ;put 5 in stack
 
-push rax    #put number from register rax to stack
+push rax    ;put number from register rax to stack
 
-push [5]    #put number from five cell of RAM to stack
+push [5]    ;put number from five cell of RAM to stack
 
-push [rax]  #take number from register rax, discard fractional part and reieve natural number N and put number from N cell of RAM to stack
+push [rax]  ;take number from register rax, discard fractional part and reieve natural number N and put number from N cell of RAM to stack
 
-push rax + 5 #take number from register rax sum it with 5 and put sum in stack
+push rax + 5 ;take number from register rax sum it with 5 and put sum in stack
 
-push rax - 5 #take number from register rax subtract 5 from this number and put in stack
+push rax - 5 ;take number from register rax subtract 5 from this number and put in stack
 
-push [rax + 5] #take number from register rax sum, discard fractional part, sum with 5 and recieve number N and put number from N cell
-               # of RAM to stack
+push [rax + 5] ;take number from register rax sum, discard fractional part, sum with 5 and recieve number N and put number from N cell
+               ; of RAM to stack
 
-push [rax - 5] #similary with previous
+push [rax - 5] ;similary with previous
 ```
 2. POP
 
@@ -127,17 +127,17 @@ push [rax - 5] #similary with previous
 
 rax - is example of register
 ```asm
-pop       #take number from stack and throw in the trash box next to your house
+pop       ;take number from stack and throw in the trash box next to your house
 
-pop rax   #take number from stack and put it in register rax
+pop rax   ;take number from stack and put it in register rax
 
-pop [5]   #take number from stack and put it in 5 cell of RAM
+pop [5]   ;take number from stack and put it in 5 cell of RAM
 
-pop [rax] #take number from register rax, discard fractional part and recieve number N
-          #after this take number from stack and put it in N cell of RAM
+pop [rax] ;take number from register rax, discard fractional part and recieve number N
+          ;after this take number from stack and put it in N cell of RAM
 
-pop [rax + 5] #take number from register rax, discard fractional part, sum with 5 and recieve number N
-              #after this take number from stack and put it in N cell of RAM
+pop [rax + 5] ;take number from register rax, discard fractional part, sum with 5 and recieve number N
+              ;after this take number from stack and put it in N cell of RAM
 ```
 3. JMP
 
@@ -150,13 +150,13 @@ jmp next:
     pop
 next:
     push 5
-#in this code skip "pop" and do only "push 5"
+;in this code skip "pop" and do only "push 5"
 ```
 ```asm
 next:
     push 5
 jmp next:
-#in this code infinite cycle of "push 5"
+;in this code infinite cycle of "push 5"
 ```
 
 

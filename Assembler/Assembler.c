@@ -95,14 +95,14 @@ int Buffer_to_Code (Assembler* ass)
     {
         _BREAK_IF_
 
-        if (*ptr == '#')
+        if (*ptr == ':')
         {
             Ignore (&ptr);
         }                   
 
         num_of_line += Enters_n_spaces_skip (&ptr);
 
-        if (*ptr == '#')
+        if (*ptr == ';')
         {
             Ignore (&ptr);
         }                   
@@ -111,7 +111,7 @@ int Buffer_to_Code (Assembler* ass)
 
         char* word = Take_Word (ptr);
 
-        if (*ptr == '#')
+        if (*ptr == ';')
         {
             Ignore (&ptr);
         }                   
@@ -136,7 +136,7 @@ int Buffer_to_Code (Assembler* ass)
             {
                 return ERR;                
             }
-            if (*ptr == '#')
+            if (*ptr == ';')
             {
                 Ignore (&ptr);
             }                   
@@ -144,7 +144,7 @@ int Buffer_to_Code (Assembler* ass)
             cmd = IS_LABEL_OR_FUNC;
         }
 
-        if (*ptr == '#')
+        if (*ptr == ';')
         {
             Ignore (&ptr);
         }                   
@@ -161,7 +161,7 @@ int Buffer_to_Code (Assembler* ass)
                                                                                                                                        \
             while (args_number > 0)                                                                                                    \
             {                                                                                                                          \
-                if (*ptr == '#')                                                                                                       \
+                if (*ptr == ';')                                                                                                       \
                 {                                                                                                                      \
                     Ignore (&ptr);                                                                                                     \
                 }                                                                                                                      \
@@ -175,7 +175,7 @@ int Buffer_to_Code (Assembler* ass)
                 _BREAK_IF_                                                                                                             \
                 Skip_Spaces (&ptr);                                                                                                    \
                                                                                                                                        \
-                if (*ptr == '#')                                                                                                       \
+                if (*ptr == ';')                                                                                                       \
                 {                                                                                                                      \
                     Ignore (&ptr);                                                                                                     \
                 }                                                                                                                      \
@@ -202,7 +202,7 @@ int Buffer_to_Code (Assembler* ass)
                 ip += sizeof (double);                                                                                                 \
             }                                                                                                                          \
             Skip_Spaces (&ptr);                                                                                                        \
-            if (*ptr == '#')                                                                                                           \
+            if (*ptr == ';')                                                                                                           \
             {                                                                                                                          \
                 Ignore (&ptr);                                                                                                         \
             }                                                                                                                          \
