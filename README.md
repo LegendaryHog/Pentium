@@ -1,6 +1,6 @@
 # Pentium
 
-**1. Asm_Progs**
+**1. Asm_Progs** (##1.-Asm_Progs)
 
 **2. Assembler**
 
@@ -14,7 +14,7 @@
 
 **7. Compilate and run**
 
-## 1. Asm_Progs [Asm_Progs]
+## 1. Asm_Progs
 Programms writed for my Assembler. Accurate documentation in folder.
 
 ## 2. Assembler [Assembler]
@@ -87,7 +87,7 @@ All commands must write in folder "Pentium".
     make clean
     ```
 
-## 6. commands.h [commands.h]
+## 6. commands.h
 Header file with prototypes of functional macros that include all informatiom about representation commands in code.
 Example:
 ```c
