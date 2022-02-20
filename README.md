@@ -12,7 +12,7 @@
 
 [**6. commands.h**](#6-commandsh)
 
-[**7. Compilate and run**](#7-compilate_and_run)
+[**7. Compilate and run**](#7-compilate-and-run)
 
 ## 1. Asm_Progs
 Programms writed for my Assembler. Accurate documentation in folder.
@@ -247,45 +247,45 @@ else - don't jump.
 
 Examples are similar with **JAE**.
 
-- ### "if/else" and cycles with jumps
+    **"if/else" and cycles with jumps**
 
-- "if/else":
-    ```asm
-    push rax
-    push rbx
-
-    je if_rax==rbx:
-    ;else
-        push 4
-        jmp end_if/else:
-    if_rax==rbx:
-        push 5
-    end_if/else:
-    ;if rax == rbx - push 5, else push 4 and jump through push 5
-    ```
-    
-- cycles
-    ```asm
-    push 0
-    pop rax
-
-    push 5
-    pop rbx
-
-    while_rax<=10:
-        push 5
-        push rbx
-        mul
-
-        push rax + 1
-        pop  rax
-
+    - "if/else":
+        ```asm
         push rax
-        push 10 
+        push rbx
 
-    jae while_rax<=10:
-    ;cycle with 10 iterations
-    ```
+        je if_rax==rbx:
+        ;else
+            push 4
+            jmp end_if/else:
+        if_rax==rbx:
+            push 5
+        end_if/else:
+        ;if rax == rbx - push 5, else push 4 and jump through push 5
+        ```
+        
+    - cycles
+        ```asm
+        push 0
+        pop rax
+
+        push 5
+        pop rbx
+
+        while_rax<=10:
+            push 5
+            push rbx
+            mul
+
+            push rax + 1
+            pop  rax
+
+            push rax
+            push 10 
+
+        jae while_rax<=10:
+        ;cycle with 10 iterations
+        ```
     10. **CALL**
 
     Description: jump to label and push position of next command to stack
