@@ -14,20 +14,20 @@
 
 **7. Compilate and run**
 
-## 1. Asm_Progs
+## 1. Asm_Progs [Asm_Progs]
 Programms writed for my Assembler. Accurate documentation in folder.
 
-## 2. Assembler
+## 2. Assembler [Assembler]
 Programm that convert text code to machine code and write his in binary file. Accurate documentation in folder.
 
-## 3. Pic
+## 3. Pic [Pic]
 Programm that scan picture, which you "draw" in text file with using spaces and pluses, and generate asm code to draw it by Processor.
 Accurate documentation in folder.
 
-## 4. Processor
+## 4. Processor [Processor]
 Programm that execute machine code from binary file. Accurate documentation in folder.
 
-## 5. Makefile
+## 5. Makefile [Makefile]
 File that make connection between compilation of prorgamms and run of out files.
 All commands must write in folder "Pentium".
 ### Objectives:
@@ -87,7 +87,7 @@ All commands must write in folder "Pentium".
     make clean
     ```
 
-## 6. commands.h
+## 6. commands.h [commands.h]
 Header file with prototypes of functional macros that include all informatiom about representation commands in code.
 Example:
 ```c
@@ -97,8 +97,8 @@ DEF_CMD(name, num, args_num, code)
 - num  - number of command in enum
 - args_num - sun of arguments
 - code - code to case in switch in "Processor/Processor.c" in function Pentium ()
-;;; Description of commands.
-1. PUSH
+### Description of commands.
+1. **PUSH**
 
 5 - is example of const
 
@@ -110,7 +110,7 @@ push rax    ;put number from register rax to stack
 
 push [5]    ;put number from five cell of RAM to stack
 
-push [rax]  ;take number from register rax, discard fractional part and reieve natural number N and put number from N cell of RAM to stack
+push [rax]  ;take number from register rax, discard fractional part and recieve natural number N and put number from N cell of RAM to stack
 
 push rax + 5 ;take number from register rax sum it with 5 and put sum in stack
 
@@ -121,7 +121,7 @@ push [rax + 5] ;take number from register rax sum, discard fractional part, sum 
 
 push [rax - 5] ;similary with previous
 ```
-2. POP
+2. **POP**
 
 5 - is example of const
 
@@ -139,7 +139,7 @@ pop [rax] ;take number from register rax, discard fractional part and recieve nu
 pop [rax + 5] ;take number from register rax, discard fractional part, sum with 5 and recieve number N
               ;after this take number from stack and put it in N cell of RAM
 ```
-3. JMP
+3. **JMP**
 
 Description: jump to label (move stream of execution on command after label)
 
@@ -160,7 +160,7 @@ jmp next:
 ```
 
 
-4. JAE
+4. **JAE**
 
 Description: take two numbers from stack and compare. If last above or equal second of last - jump to
 
@@ -196,6 +196,10 @@ jae next:
 next:
     push 2
 ```
+
+5. **JBE**
+
+Description:
 
 
 
