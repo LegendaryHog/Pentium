@@ -52,17 +52,23 @@ All commands must write in folder "Pentium".
     make recomp_all
     ```
 - "run quad:"
-    Run assembler programm "Quad" that solve any square equation. For use write in command string:
+    Run assembler programm "Quad" that solve any square equation. First number on screen is number of roots, if roots are infinity on
+
+    screen print 88.000000, other numbers is value of roots, if they exist. For use write in command string:
     ```
     make run_quad
     ```
 - "run_pic:"
-    Scan picture from "Pic/Pic.txt", generate assembler programm in "Asm_Progs/picasm.txt", assembling and processing programm.  After this picture drawn in console. For use write in command string:
+    Scan picture from "Pic/Pic.txt", generate assembler programm in "Asm_Progs/picasm.txt", assembling and processing programm.  After 
+    
+    this picture drawn in console. For use write in command string:
     ```
     make run_pic
     ```
 - "run_circul:"
-    Assembling programm from "Asm_Progs/Circul.txt" and processing it. programm take radius of circul and draw it in console. For use write in command string:
+    Assembling programm from "Asm_Progs/Circul.txt" and processing it. programm take radius of circul and draw it in console. For use
+    
+     write in command string:
     ```
     make run_circul
     ```
@@ -241,7 +247,7 @@ else - don't jump.
 
 Examples are similar with **JAE**.
 
-- **"if/else" and cycles with jumps**
+- ### "if/else" and cycles with jumps
 
 - "if/else":
     ```asm
@@ -280,6 +286,166 @@ Examples are similar with **JAE**.
     jae while_rax<=10:
     ;cycle with 10 iterations
     ```
+    10. **CALL**
+
+    Description: jump to label and push position of next command to stack
+
+    ```asm
+    call func:
+
+    func:
+        push 5
+        pop
+    ret
+    ```
+    11. **RET**
+
+    Description: pop from stack number and jump to position with this number.
+
+    *Be careful with balance of stack in function. For return happens pop from stack, if before position of return in stack is unnecesary numbers return will wrong.*
+
+    12. **IN**
+
+    Description: take number by scanf () with specificator %lf from stdin for double numbers and push it in stack.
+
+    13. **OUT**
+
+    Description: take number from stack and put it in console.
+
+    14. **ADD**
+
+    Description: take two numbers from stack and put they sum back.
+
+    15. **SUB**
+
+    Description: take two numbers from stack and put difference between last and second last numbers back.
+
+    16. **MUL**
+
+    Description: take two numbers from stack and put product back.
+
+    17. **DIV**
+
+    Description: take two numbers from stack, divide second last on last and put result back.
+
+    18. **SQRT**
+
+    Description: take number from stack and put back value of square root.
+
+    19. **DUMP**
+
+    Description: dump stack in proc_stack_logfile.txt
+
+    20. **FABS**
+
+    Description: take number from stack and put back absolute value.
+
+    21. **ISFIN**
+
+    Description: if number in stack is finite - push 1 in stack
+    
+    else - push 0 in stack
+
+    22. **PIVO**
+
+    Description: print "Go and drink pivo!" (pivo is russian Coca Cola) in console.
+
+    23. **PIC**
+
+    Description: put picture, that saved in video memory, on screen in console.
+
+    24. **SET**
+
+    Description: take two numbers from stack. Last is high of picture and second last is width.
+
+    25. **DRAW**
+
+    Description: take two numbers from stack. Last is ordinate, second last is abscissa for plus. In matching cell in video memory put 1.
+
+    26. **HLT**
+
+    Description: stop executing of programm.
+
+## 7. Compilate and run
+
+If you want compilate and run without using Makefile (why?(( but it's not my problem) read this description
+
+of arguments for command string.
+
+- Assembler
+
+    For compilate:
+    ```
+    gcc <path>/Assembler.c <path/>main.c -o <outfilename>
+    ```
+    or
+    ```
+    g++ <path>/Assembler.c <path/>main.c -o <outfilename>
+    ```
+    For run:
+
+    ```
+    ./<outfilename> <asmcodefile> <machinecodefile>
+    ```
+    outfilename - extension *.out
+
+    asmcodefile - extension *.txt
+
+    machinecodefile - extension *.bin
+
+- Processor
+
+    For compilate:
+
+    ```
+    gcc <path>/stack.c <path>/Processor.c <path>/main.c -lm -o <outfilename>
+    ```
+    or
+
+    ```
+    g++ <path>/stack.c <path>/Processor.c <path>/main.c - o <outfilename>
+    ```
+
+    For run:
+
+    ```
+    ./<outfilename> <machinecodefile>
+    ```
+    outfilename - extension *.out
+
+    machinecodefile - extension *.bin, must be result of runing of Assembler
+
+- Pic
+
+    For compilate:
+
+    ```
+    gcc <path>/pic.c <path>/main.c -o <outfilename>
+    ```
+
+    or 
+
+    ```
+    g++ <path>/pic.c <path>/main.c -o <outfilename>
+    ```
+
+    For run:
+
+    ```
+    ./<outfilename> <picfile> <picasmfile>
+    ```
+    outfilename - extension is *.out
+
+    picfile - extension if *.txt, file with picture for scan, for more info read docementatin of "Pic"
+
+    picasmfile - extension *.txt, file with generated asm code, for more info read documentation of "Pic"
+
+
+
+
+
+
+    
 
 
 
