@@ -1,7 +1,7 @@
-CALL input:
-CALL new_coef:
-CALL solve:
-CALL output:
+CALL input:    #input func
+CALL new_coef: #make new coefficients
+CALL solve:    #solve equation
+CALL output:   #output solvetion of equation
 HLT
 
 input:

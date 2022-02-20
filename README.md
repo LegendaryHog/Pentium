@@ -1,10 +1,17 @@
 # Pentium
+
 **1. Asm_Progs**
+
 **2. Assembler**
+
 **3. Pic**
+
 **4. Processor**
+
 **5. Makefile**
+
 **6. commands.h**
+
 **7. Compilate and run**
 
 ## 1. Asm_Progs
@@ -86,17 +93,35 @@ Example:
 ```c
 DEF_CMD(name, num, args_num, code)
 ```
-name - name of command
-num  - number of command in enum
-args_num - sun of arguments
-code - code to case in switch in "Processor/Processor.c" in function Pentium ()
+- name - name of command
+- num  - number of command in enum
+- args_num - sun of arguments
+- code - code to case in switch in "Processor/Processor.c" in function Pentium ()
 ### Description of commands.
 1. PUSH
-Argument: possible
-5 - is example of const
-rax - is example of register
-```c
-PUSH 5 ()
 
-PUSH rax
+Argument:
+
+5 - is example of const
+
+rax - is example of register
+```asm
+push 5      #put 5 in stack
+
+push rax    #put number from register rax to stack
+
+push [5]    #put number from five cell of RAM to stack
+
+push [rax]  #take number from register rax, discard fractional part and reieve natural number N and put number from N cell of RAM to stack
+
+push rax + 5 #take number from register rax sum it with 5 and put sumin stack
+
+push rax - 5 #take number from register rax subtract 5 from this number and put in stack
+
+push [rax + 5] #take number from register rax sum, discard fractional part, sum with 5 and recieve number N and put number from N cell
+               # of RAM to stack
+
+push [rax - 5] #similary with previous
+
+```
 

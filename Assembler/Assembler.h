@@ -122,5 +122,7 @@ char*         Take_Word            (const char* ptrtext);
 
 size_t        Max                  (const size_t num1, const size_t num2);
 
+size_t        Ignore               (char** ptr_on_ptr);
+
 #endif
 

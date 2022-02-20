@@ -95,11 +95,26 @@ int Buffer_to_Code (Assembler* ass)
     {
         _BREAK_IF_
 
+        if (*ptr == '#')
+        {
+            Ignore (&ptr);
+        }                   
+
         num_of_line += Enters_n_spaces_skip (&ptr);
+
+        if (*ptr == '#')
+        {
+            Ignore (&ptr);
+        }                   
 
         _BREAK_IF_
 
         char* word = Take_Word (ptr);
+
+        if (*ptr == '#')
+        {
+            Ignore (&ptr);
+        }                   
 
         #define DEF_CMD(name, num, args_num, ...)                              \
         if (strncmp_tolower ((char*)#name, word,  Max (strlen ((char*)#name), strlen (word))) == 0)   \
@@ -121,9 +136,18 @@ int Buffer_to_Code (Assembler* ass)
             {
                 return ERR;                
             }
+            if (*ptr == '#')
+            {
+                Ignore (&ptr);
+            }                   
             Skip_Symbols (&ptr);
             cmd = IS_LABEL_OR_FUNC;
         }
+
+        if (*ptr == '#')
+        {
+            Ignore (&ptr);
+        }                   
 
         free (word);
         #undef DEF_CMD
@@ -137,6 +161,10 @@ int Buffer_to_Code (Assembler* ass)
                                                                                                                                        \
             while (args_number > 0)                                                                                                    \
             {                                                                                                                          \
+                if (*ptr == '#')                                                                                                       \
+                {                                                                                                                      \
+                    Ignore (&ptr);                                                                                                     \
+                }                                                                                                                      \
                 if (*ptr != ' ' && *ptr != '\t' && cmd != CMD_POP)                                                                     \
                 {                                                                                                                      \
                     fprintf (logfile, "No space between command/argument and argument of %s in line %zd\n", #name, num_of_line + 1);   \
@@ -146,6 +174,11 @@ int Buffer_to_Code (Assembler* ass)
                 }                                                                                                                      \
                 _BREAK_IF_                                                                                                             \
                 Skip_Spaces (&ptr);                                                                                                    \
+                                                                                                                                       \
+                if (*ptr == '#')                                                                                                       \
+                {                                                                                                                      \
+                    Ignore (&ptr);                                                                                                     \
+                }                                                                                                                      \
                                                                                                                                        \
                 if (Arg_Scan (&ptr, ass, ip, &ip_lbls, &ip_funcs, num_of_line, cmd, &typemask) == ERR)                                 \
                 {                                                                                                                      \
@@ -169,6 +202,10 @@ int Buffer_to_Code (Assembler* ass)
                 ip += sizeof (double);                                                                                                 \
             }                                                                                                                          \
             Skip_Spaces (&ptr);                                                                                                        \
+            if (*ptr == '#')                                                                                                           \
+            {                                                                                                                          \
+                Ignore (&ptr);                                                                                                         \
+            }                                                                                                                          \
                                                                                                                                        \
             _BREAK_IF_                                                                                                                 \
             if (*ptr != '\n' && *ptr != '\0' && *ptr != '\r')                                                                          \
@@ -899,4 +936,17 @@ size_t Max (const size_t num1, const size_t num2)
     {
         return num2;
     }
+}
+
+size_t Ignore (char** ptr_on_ptr)
+{
+    size_t count = 0;
+
+    while (**ptr_on_ptr != '\n' && **ptr_on_ptr != '\r' && **ptr_on_ptr != '\0')
+    {
+        (*ptr_on_ptr)++;
+        count++;
+    }
+
+    return count;
 }
