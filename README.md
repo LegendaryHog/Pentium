@@ -1,6 +1,6 @@
 # Pentium
 
-[**1. Asm_Progs**](#1.-asm_progs)
+[**1. Asm_Progs**](#1-asm_progs)
 
 **2. Assembler**
 
