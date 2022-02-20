@@ -71,17 +71,17 @@ All commands must write in folder "Pentium".
     ```
     make run_cmdfile
     ```
-- "run_heart"
+- "run_heart:"
     Run asm programm that draw heart in console. For use write in command string:
     ```
     make run_heart
     ```
-- **"run_RT_Erbe"**
+- **"run_RT_Erbe:"**
     Run asm programm that draw Erbe of first and the best Phystech School DREC (PH R T K on russian) and short name of Ph-t School on russian. For use write in command string:
     ```
     make run_RT_Erbe
     ```
-- "clean"
+- "clean:"
     Delete logfiles from folder "Pentium". For use write in command string:
     ```
     make clean
@@ -100,8 +100,6 @@ DEF_CMD(name, num, args_num, code)
 ### Description of commands.
 1. PUSH
 
-Argument:
-
 5 - is example of const
 
 rax - is example of register
@@ -114,7 +112,7 @@ push [5]    #put number from five cell of RAM to stack
 
 push [rax]  #take number from register rax, discard fractional part and reieve natural number N and put number from N cell of RAM to stack
 
-push rax + 5 #take number from register rax sum it with 5 and put sumin stack
+push rax + 5 #take number from register rax sum it with 5 and put sum in stack
 
 push rax - 5 #take number from register rax subtract 5 from this number and put in stack
 
@@ -122,6 +120,8 @@ push [rax + 5] #take number from register rax sum, discard fractional part, sum 
                # of RAM to stack
 
 push [rax - 5] #similary with previous
-
 ```
+2. POP
+
+
 
