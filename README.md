@@ -2,19 +2,19 @@
 
 [**1. Asm_Progs**](#1-asm_progs)
 
-**2. Assembler**
+[**2. Assembler**](#2-assembler)
 
-**3. Pic**
+[**3. Pic**](#3-pic)
 
-**4. Processor**
+[**4. Processor**](#4-processor)
 
-**5. Makefile**
+[**5. Makefile**](#5-makefile)
 
-**6. commands.h**
+[**6. commands.h**](#6-commandsh)
 
-**7. Compilate and run**
+[**7. Compilate and run**](#7-compilate_and_run)
 
-### 1. Asm_Progs
+## 1. Asm_Progs
 Programms writed for my Assembler. Accurate documentation in folder.
 
 ## 2. Assembler 
@@ -176,7 +176,9 @@ jae next:
     push 1
 next1:
     push 2
+;do push 1 and push 2
 ```
+
 
 ```asm
 push 4 
@@ -186,6 +188,7 @@ jae next:
     push 1
 next2:
     push 2
+;do only push 2
 ```
 ```asm
 push 4 
@@ -195,11 +198,94 @@ jae next:
     push 1
 next:
     push 2
+;do only push 2
 ```
 
 5. **JBE**
 
-Description:
+Description: take two numbers from stack and compare. If last below or equal second last - jump to
+
+label, else - don't jump.
+
+Examples are similar with **JAE**.
+
+6. **JNE**
+
+Description: take two numbers from stack, if absolute value of difference between numbers above tnan 10E-6 - jump to label,
+
+else - don't jump.
+
+Examples are similar with **JAE**.
+
+7. **JA**
+
+Description: take two numbers from stack, if last above than second last - jump to label,
+
+else - don't jump.
+
+Examples are similar with **JAE**.
+
+8. **JB**
+
+Description: take two numbers from stack, if last below than second last - jump to label,
+
+else - don't jump.
+
+Examples are similar with **JAE**.
+
+9. **JE**
+
+Description: take two numbers from stack, if absolute value of difference between numbers below tnan 10E-6 - jump to label,
+
+else - don't jump.
+
+Examples are similar with **JAE**.
+
+- **"if/else" and cycles with jumps**
+
+- "if/else":
+    ```asm
+    push rax
+    push rbx
+
+    je if_rax==rbx:
+    ;else
+        push 4
+        jmp end_if/else:
+    if_rax==rbx:
+        push 5
+    end_if/else:
+    ;if rax == rbx - push 5, else push 4 and jump through push 5
+    ```
+    
+- cycles
+    ```asm
+    push 0
+    pop rax
+
+    push 5
+    pop rbx
+
+    while_rax<=10:
+        push 5
+        push rbx
+        mul
+
+        push rax + 1
+        pop  rax
+
+        push rax
+        push 10 
+
+    jae while_rax<=10:
+    ;cycle with 10 iterations
+    ```
+
+
+
+
+
+
 
 
 
