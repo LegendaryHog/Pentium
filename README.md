@@ -24,9 +24,9 @@ Programm that convert text code to machine code and write his in binary file. Sy
 
 - between commands and argument must be space;
 
-- labels must ends by ':';
+- labels must ends by **':'**;
 
-- ';' - comment symbol, text after him on string ignore;
+- **';'** - comment symbol, text after him on string ignore;
 
 - list of possible commands in [commands.h](#6-commandsh);
 
