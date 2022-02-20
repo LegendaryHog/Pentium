@@ -15,17 +15,30 @@
 [**7. Compilate and run**](#7-compilate-and-run)
 
 ## 1. Asm_Progs
-Programms writed for my Assembler. Accurate documentation in folder.
-
+Programms writed for my Assembler. 
 ## 2. Assembler 
-Programm that convert text code to machine code and write his in binary file. Accurate documentation in folder.
+Programm that convert text code to machine code and write his in binary file. Syntaxis **rule**:
+- register of symbols for commands ignore;
+
+- One string == one command;
+
+- between commands and argument must be space;
+
+- labels must ends by ':';
+
+- ';' - comment symbol, text after him on string ignore;
+
+- list of possible commands in [commands.h](#6-commandsh);
+
+- two label or func with one name can't exist;
+
+- **34**;
 
 ## 3. Pic 
 Programm that scan picture, which you "draw" in text file with using spaces and pluses, and generate asm code to draw it by Processor.
-Accurate documentation in folder.
 
 ## 4. Processor 
-Programm that execute machine code from binary file. Accurate documentation in folder.
+Programm that execute machine code from binary file.
 
 ## 5. Makefile 
 File that make connection between compilation of prorgamms and run of out files.
@@ -435,9 +448,9 @@ of arguments for command string.
     ```
     outfilename - extension is *.out
 
-    picfile - extension is *.txt, file with picture for scan, for more info read docementatin of "Pic"
+    picfile - extension is *.txt, file with picture for scan
 
-    picasmfile - extension  is *.txt, file with generated asm code, for more info read documentation of "Pic"
+    picasmfile - extension  is *.txt, file with generated asm code
 
 
 
