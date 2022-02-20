@@ -13,20 +13,20 @@
 
 **7. Compilate and run**
 
-## 1. Asm_Progs [**1. Asm_Progs**]
+## 1. Asm_Progs [**1. Asm_Progs**](#1.-Asm_Progs)
 Programms writed for my Assembler. Accurate documentation in folder.
 
-## 2. Assembler [Assembler]
+## 2. Assembler 
 Programm that convert text code to machine code and write his in binary file. Accurate documentation in folder.
 
-## 3. Pic [Pic]
+## 3. Pic 
 Programm that scan picture, which you "draw" in text file with using spaces and pluses, and generate asm code to draw it by Processor.
 Accurate documentation in folder.
 
-## 4. Processor [Processor]
+## 4. Processor 
 Programm that execute machine code from binary file. Accurate documentation in folder.
 
-## 5. Makefile [Makefile]
+## 5. Makefile 
 File that make connection between compilation of prorgamms and run of out files.
 All commands must write in folder "Pentium".
 ### Objectives:
