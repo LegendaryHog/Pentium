@@ -123,5 +123,81 @@ push [rax - 5] #similary with previous
 ```
 2. POP
 
+5 - is example of const
+
+rax - is example of register
+```asm
+pop       #take number from stack and throw in the trash box next to your house
+
+pop rax   #take number from stack and put it in register rax
+
+pop [5]   #take number from stack and put it in 5 cell of RAM
+
+pop [rax] #take number from register rax, discard fractional part and recieve number N
+          #after this take number from stack and put it in N cell of RAM
+
+pop [rax + 5] #take number from register rax, discard fractional part, sum with 5 and recieve number N
+              #after this take number from stack and put it in N cell of RAM
+```
+3. JMP
+
+Description: jump to label (move stream of execution on command after label)
+
+next: - example of label
+
+```asm
+jmp next:
+    pop
+next:
+    push 5
+#in this code skip "pop" and do only "push 5"
+```
+```asm
+next:
+    push 5
+jmp next:
+#in this code infinite cycle of "push 5"
+```
+
+
+4. JAE
+
+Description: take two numbers from stack and compare. If last above or equal second of last - jump to
+
+label, else - don't jump.
+
+next:- example of label
+
+```asm
+push 5
+push 4
+
+jae next:
+    push 1
+next1:
+    push 2
+```
+
+```asm
+push 4 
+push 5
+
+jae next:
+    push 1
+next2:
+    push 2
+```
+```asm
+push 4 
+push 4
+
+jae next:
+    push 1
+next:
+    push 2
+```
+
+
+
 
 
